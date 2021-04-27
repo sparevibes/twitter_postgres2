@@ -1,3 +1,4 @@
+
 CREATE INDEX tweets_jsonb_idx_htags ON tweets_jsonb USING gin(((data -> 'entities'::text) -> 'hashtags'::text));
 
 CREATE INDEX tweets_jsonb_idx_exthtags ON tweets_jsonb USING gin((((data -> 'extended_tweet'::text) -> 'entities'::text) -> 'hashtags'::text));
